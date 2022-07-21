@@ -1,9 +1,6 @@
 defmodule ExMon do
-  @moduledoc """
-  ExMon keeps the contexts that define your domain
-  and business logic.
-
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  alias ExMon.Trainer
+  # quando chamarmos ExMon.create_trainer(), vai ser a mesma coisa que chamar
+  # ExMon.Trainer.Create.call(), é só um renomeamento
+  defdelegate create_trainer(params), to: Trainer.Create, as: :call
 end
